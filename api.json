@@ -133,7 +133,7 @@
       "rating": 5
     }
   ],
-  "aggregations": [
+  "aggregations": {
     "clothing": {
       "count": 5,
       "inventoryValue": 72758.33
@@ -154,6 +154,6 @@
       "count": 3,
       "inventoryValue": 59061.54
     }
-  ]
+  }
 
 }
