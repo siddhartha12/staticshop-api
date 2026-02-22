@@ -1,0 +1,13 @@
+name: Hello Action with Email Step  # Name shown in GitHub UI
+
+on: [push]  # Triggers when you push code (easiest for testing)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Free virtual machine (runner) to run on
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Grabs your repo files
+
+      - name: 24f1002705@ds.study.iitm.ac.in  # Your required step name!
+        run: echo "Hello from my custom GitHub Action! Email step complete."  # Simple command
