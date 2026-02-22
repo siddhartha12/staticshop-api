@@ -1,6 +1,6 @@
 name: Cache Test
 
-on: [push]  # Triggers on any push to any branch
+on: [push]
 
 jobs:
   test:
@@ -10,15 +10,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Prime cache  # This is your required step name
+    - name: prime-cache-7e05ed9  # Exact required name
       id: cache-step
       uses: actions/cache@v4
       with:
-        path: ~/.npm  # Example: caches npm deps (common). Use node_modules/ for project-specific.
-        key: cache-7e05ed9  # Exact key required by assignment
+        path: ~/.cache/dummy  # Safe dummy path (always exists/creates)
+        key: cache-7e05ed9    # Exact required key
         
     - name: Echo cache result
-      run: echo "Cache ${{ steps.cache-step.outputs.cache-hit }} (hit if 'true')"  # Shows hit/miss
-      
-    - name: Fake install (to demo save)
-      run: npm install  # Or your real deps (pip install, etc.). First run: misses cache, saves it.
+      run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"  # true/false
